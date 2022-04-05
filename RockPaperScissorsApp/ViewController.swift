@@ -42,6 +42,8 @@ class ViewController: UIViewController {
     var icons: [UIImage] = [UIImage(named: "rock")!, UIImage(named: "paper")!, UIImage(named:  "scissors")!
     ]
     
+    @IBAction func whenTapped(_ sender: UITapGestureRecognizer) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
