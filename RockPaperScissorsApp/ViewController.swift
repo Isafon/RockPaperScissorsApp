@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var computerOutputImageView: UIImageView!
 
     @IBOutlet weak var myOutputImageView: UIImageView!
+
+    @IBOutlet var rockPaperScissorsImageViews: [UIImageView]!
     
-    @IBOutlet weak var rockImageView: UIImageView!
     
-    @IBOutlet weak var paperImageView: UIImageView!
+//STACK VIEW ROCK, PAPER, SCISSORS:
+    @IBOutlet weak var stackView: UIStackView!
     
-    @IBOutlet weak var scissorsImageView: UIImageView!
     
 //SCORES:
     @IBOutlet weak var computerScoreLabel: UILabel!
@@ -32,15 +33,11 @@ class ViewController: UIViewController {
     var myScore: Int = 0
     
 //BUTTONS:
-    @IBAction func onRockButtonTapped(_ sender: UIButton) {
-        
-    }
+    @IBOutlet weak var rockButoon: UIButton!
+    @IBOutlet weak var paperButoon: UIButton!
+    @IBOutlet weak var scissorsButoon: UIButton!
     
-    @IBAction func onPaperButtonTapped(_ sender: UIButton) {
-    }
     
-    @IBAction func onScissorsButtonTapped(_ sender: UIButton) {
-    }
     
     var icons: [UIImage] = [UIImage(named: "rock")!, UIImage(named: "paper")!, UIImage(named:  "scissors")!
     ]
@@ -49,6 +46,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        rockButoon.isHidden = true
+        paperButoon.isHidden = true
+        scissorsButoon.isHidden = true
     }
 
 
