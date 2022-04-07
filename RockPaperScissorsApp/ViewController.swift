@@ -42,8 +42,55 @@ class ViewController: UIViewController {
     var icons: [UIImage] = [UIImage(named: "rock")!, UIImage(named: "paper")!, UIImage(named:  "scissors")!
     ]
     
+    
+    var index = 3
+    
+    
     @IBAction func whenTapped(_ sender: UITapGestureRecognizer) {
+        
+        let selectedPoint = sender.location(in: stackView)
+        
+        for barn in rockPaperScissorsImageViews {
+            
+            if barn.frame.contains(selectedPoint) {
+                index = barn.tag
+                myOutputImageView.image = icons[index]
+            }
+            
+            let randomIcon = Int.random(in: 0...2)
+            computerOutputImageView.image = icons[randomIcon]
+        }
+        
     }
+    
+
+/* note to self:
+randomIcon = computer choice
+icons = player choice */
+
+    
+func decideWinner(){
+        
+       
+     /* if(myOutputImageView == computerOutputImageView){
+        winner = "Draw"
+      } else if ((myOutputImageView == "rock") && (computerOutputImageView == "scissors")){
+        winner = "Player"
+      } else if ((myOutputImageView == "Paper") && (computerOutputImageView == "rock")){
+        winner = "Player"
+      } else if ((myOutputImageView == "scissors") && (computerOutputImageView == "paper")){
+        winner = "Player"
+      } else {
+        winner = "Computer"
+      }
+      return winner */
+    
+    }
+    
+    @IBAction func onHowToTapped(_ sender: UIButton) {
+        UIApplication.shared.openURL((NSURL(string: "https://www.wikihow.com/Play-Rock,-Paper,-Scissors")! as URL))
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +99,11 @@ class ViewController: UIViewController {
         rockButoon.isHidden = true
         paperButoon.isHidden = true
         scissorsButoon.isHidden = true
+        
+        
+    
+    
     }
-
-
+    
+    
 }
-
