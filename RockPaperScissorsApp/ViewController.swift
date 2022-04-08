@@ -80,23 +80,23 @@ icons = player choice */
     
 func decideWinner(){
 
-    if myOutputImageView == computerOutputImageView {
+    if myOutputImageView.image == computerOutputImageView.image {
         
         decidingWinnerLabel.text = "DRAW"
         
-    }else if myOutputImageView == UIImage(named: "rock") && computerOutputImageView == UIImage(named: "scissors"){
+    }else if myOutputImageView.image == UIImage(named: "rock") && computerOutputImageView.image == UIImage(named: "scissors"){
         
         decidingWinnerLabel.text = "Player Wins"
         
         myScore += 1
         
-    }else if myOutputImageView == UIImage(named: "paper") && computerOutputImageView == UIImage(named: "rock") {
+    }else if myOutputImageView.image == UIImage(named: "paper") && computerOutputImageView.image == UIImage(named: "rock") {
         
         decidingWinnerLabel.text = "Player Wins"
         
         myScore += 1
         
-    }else if myOutputImageView == UIImage(named: "scissors") && computerOutputImageView == UIImage(named: "paper") {
+    }else if myOutputImageView.image == UIImage(named: "scissors") && computerOutputImageView.image == UIImage(named: "paper") {
         
         decidingWinnerLabel.text = "Player Wins"
         myScore += 1
@@ -105,6 +105,8 @@ func decideWinner(){
         decidingWinnerLabel.text = "Computer Wins"
         computerScore += 1
     }
+    
+   // print(myOutputImageView.image)
     
     }
     
