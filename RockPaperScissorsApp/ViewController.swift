@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     
     var myScore: Int = 0
     
+    
 //BUTTONS:
     @IBOutlet weak var rockButoon: UIButton!
     @IBOutlet weak var paperButoon: UIButton!
@@ -61,6 +62,11 @@ class ViewController: UIViewController {
             computerOutputImageView.image = icons[randomIcon]
         }
         
+        decideWinner()
+        
+        myScoreLabel.text = "\(myScore)"
+        computerScoreLabel.text = "\(computerScore)"
+        
     }
     
 
@@ -68,25 +74,42 @@ class ViewController: UIViewController {
 randomIcon = computer choice
 icons = player choice */
 
+    @IBOutlet weak var decidingWinnerLabel: UILabel!
+
+    
     
 func decideWinner(){
+
+    if myOutputImageView == computerOutputImageView {
         
-       
-     /* if(myOutputImageView == computerOutputImageView){
-        winner = "Draw"
-      } else if ((myOutputImageView == "rock") && (computerOutputImageView == "scissors")){
-        winner = "Player"
-      } else if ((myOutputImageView == "Paper") && (computerOutputImageView == "rock")){
-        winner = "Player"
-      } else if ((myOutputImageView == "scissors") && (computerOutputImageView == "paper")){
-        winner = "Player"
-      } else {
-        winner = "Computer"
-      }
-      return winner */
+        decidingWinnerLabel.text = "DRAW"
+        
+    }else if myOutputImageView == UIImage(named: "rock") && computerOutputImageView == UIImage(named: "scissors"){
+        
+        decidingWinnerLabel.text = "Player Wins"
+        
+        myScore += 1
+        
+    }else if myOutputImageView == UIImage(named: "paper") && computerOutputImageView == UIImage(named: "rock") {
+        
+        decidingWinnerLabel.text = "Player Wins"
+        
+        myScore += 1
+        
+    }else if myOutputImageView == UIImage(named: "scissors") && computerOutputImageView == UIImage(named: "paper") {
+        
+        decidingWinnerLabel.text = "Player Wins"
+        myScore += 1
+        
+    } else {
+        decidingWinnerLabel.text = "Computer Wins"
+        computerScore += 1
+    }
     
     }
     
+    
+//HOW TO PLAY:
     @IBAction func onHowToTapped(_ sender: UIButton) {
         UIApplication.shared.openURL((NSURL(string: "https://www.wikihow.com/Play-Rock,-Paper,-Scissors")! as URL))
     }
@@ -99,9 +122,6 @@ func decideWinner(){
         rockButoon.isHidden = true
         paperButoon.isHidden = true
         scissorsButoon.isHidden = true
-        
-        
-    
     
     }
     
