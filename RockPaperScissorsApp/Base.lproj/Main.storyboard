@@ -131,16 +131,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="ROCK"/>
+                                                <connections>
+                                                    <action selector="rockButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KRb-zu-sZL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-re-wDq">
                                                 <rect key="frame" x="146" y="0.0" width="136" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="PAPER"/>
+                                                <connections>
+                                                    <action selector="paperButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkp-xu-dbM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTR-ux-cim">
                                                 <rect key="frame" x="292" y="0.0" width="136" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="SCISSORS"/>
+                                                <connections>
+                                                    <action selector="scissorsButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cWo-ag-n8i"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -170,8 +179,11 @@
                         <outlet property="myOutputImageView" destination="tKC-ha-8mS" id="3Ej-1T-n99"/>
                         <outlet property="myScoreLabel" destination="hGR-FO-0Eb" id="mb8-fZ-E0e"/>
                         <outlet property="paperButoon" destination="be4-re-wDq" id="HZ4-iF-0to"/>
+                        <outlet property="paperImage" destination="6Q9-bm-WXo" id="uwe-Zh-Cvf"/>
                         <outlet property="rockButoon" destination="Vnn-zk-6TL" id="OAn-oR-SsQ"/>
+                        <outlet property="rockImage" destination="FqM-KF-IPf" id="Ghv-oG-4Ln"/>
                         <outlet property="scissorsButoon" destination="iTR-ux-cim" id="F38-wt-i6J"/>
+                        <outlet property="scissorsImage" destination="tUq-H5-tWS" id="Fmy-VZ-1lc"/>
                         <outlet property="stackView" destination="tTz-MC-isL" id="58j-eV-4HP"/>
                         <outletCollection property="rockPaperScissorsImageViews" destination="FqM-KF-IPf" collectionClass="NSMutableArray" id="0a6-mV-m1c"/>
                         <outletCollection property="rockPaperScissorsImageViews" destination="6Q9-bm-WXo" collectionClass="NSMutableArray" id="bvc-uY-fcG"/>

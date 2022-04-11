@@ -7,7 +7,60 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    @IBOutlet weak var rockImage: UIImageView!
+    
+    @IBOutlet weak var paperImage: UIImageView!
+    
+    @IBOutlet weak var scissorsImage: UIImageView!
+    
+//UPLOAD PHOTO:
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            
+            rockImage.image = image
+            paperImage.image = image
+            scissorsImage.image = image
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+//UPLOAD PHOTO BUTTON FUNCTIONS:
+    @IBAction func rockButton1(_ sender: UIButton) {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    @IBAction func paperButton1(_ sender: UIButton) {
+        
+        let pc = UIImagePickerController()
+        pc.sourceType = .photoLibrary
+        pc.delegate = self
+        pc.allowsEditing = true
+        present(pc, animated: true)
+    }
+    
+    @IBAction func scissorsButton1(_ sender: UIButton) {
+        
+        let sc = UIImagePickerController()
+        sc.sourceType = .photoLibrary
+        sc.delegate = self
+        sc.allowsEditing = true
+        present(sc, animated: true)
+    }
+    
+    
     
 //IMAGE VIEWS:
 
@@ -121,9 +174,9 @@ func decideWinner(){
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        rockButoon.isHidden = true
-        paperButoon.isHidden = true
-        scissorsButoon.isHidden = true
+        rockButoon.isHidden = false
+        paperButoon.isHidden = false
+        scissorsButoon.isHidden = false
     
     }
     
