@@ -15,23 +15,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     @IBOutlet weak var scissorsImage: UIImageView!
     
+    var currentImageView: UIImageView!
+    var image: UIImage!
+    
 //UPLOAD PHOTO:
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
         
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             
             rockImage.image = image
-            paperImage.image = image
-            scissorsImage.image = image
         }
+//       if let image = (info[.originalImage] as! UIImage)
+//        currentImageView.contentMode = .scaleAspectFit
+//        currentImageView.image = image
+//        currentImageView.backgroundColor = UIColor.clear
+//
+//        dismiss(animated: true, completion: nil)
+            
+//        }else if let image1 = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+//
+//            paperImage.image = image1
+//
+//        }else if let image2 = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+//
+//            scissorsImage.image = image2
+        
         
         picker.dismiss(animated: true, completion: nil)
     }
+//let image pickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        picker.dismiss(animated: true, completion: nil)
+    
+   
     
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
+    
 //UPLOAD PHOTO BUTTON FUNCTIONS:
     @IBAction func rockButton1(_ sender: UIButton) {
         
@@ -40,6 +60,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         vc.delegate = self
         vc.allowsEditing = true
         present(vc, animated: true)
+        
+        rockImage.image = image
+        
     }
     
     @IBAction func paperButton1(_ sender: UIButton) {
@@ -49,6 +72,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         pc.delegate = self
         pc.allowsEditing = true
         present(pc, animated: true)
+        
+       paperImage.image = image
     }
     
     @IBAction func scissorsButton1(_ sender: UIButton) {
@@ -58,6 +83,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         sc.delegate = self
         sc.allowsEditing = true
         present(sc, animated: true)
+        
+        scissorsImage.image = image
     }
     
     
@@ -181,4 +208,5 @@ func decideWinner(){
     }
     
     
+
 }
